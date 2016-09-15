@@ -1,7 +1,7 @@
 #!/bin/bash
 
 <<ARGUMENTS
-$1 -> file to send to bash
+$1 -> files to send to bash, ex: "./myScript.sh" or "./script1.sh ./script2.sh ./script3.sh"
 ARGUMENTS
 
 for path in $@
