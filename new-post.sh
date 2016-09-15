@@ -4,22 +4,28 @@ $1 -> Title surrounded in quotes ex: "My Markdown File"
 $2 -> Destination file path including ending back slash ex: "./path/to/destination/"
 ARGUMENTS
 
-formattedDate=`date +'%Y-%m-%d'`
-file=$formattedDate-$1.md
+unformattedTitle=$1
+title=${unformattedTitle// /-}
+path=$2
 
-if [ ! -d "$2" ]; then # Check if directory exists
-  echo $2 "does not exist"
+formattedDate=`date +'%Y-%m-%d'`
+file=$formattedDate-$title.md
+
+if [ ! -d "$path" ]; then # Check if directory exists
+  echo $path "does not exist"
   exit 1
-elif [ -f "$2$file" ]; then # Check if file already exists in that directory
-  echo $file "already exists in" $2
+elif [ -f "$path$file" ]; then # Check if file already exists in that directory
+  echo $file "already exists in" $path
   exit 1
 fi
 
+
+
 ## Create file and append these base lines to it
 
-cat <<EOF >> "$2$file"
+cat <<EOF >> "$path$file"
 ---
-title: $1
+title: $unformattedTitle
 date: `date +'%Y-%m-%d %H:%M:%S'` -0400
 ---
 EOF
