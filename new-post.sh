@@ -5,8 +5,9 @@ $2 -> Destination file path including ending back slash ex: "./path/to/destinati
 ARGUMENTS
 
 unformattedTitle=$1
-title=${unformattedTitle// /-}
+title=$(echo ${unformattedTitle// /-} | tr '[:upper:]' '[:lower:]')
 path=$2
+echo $title
 
 formattedDate=`date +'%Y-%m-%d'`
 file=$formattedDate-$title.md

@@ -3,10 +3,7 @@
 1.`title` (string): Title of post and will be appended to the file's name after the date. ex: "My Markdown File"
 2.`destination_path` (string):  Destination file path including ending back slash. ex: "./path/to/destination/"
 
-Creates a markdown file named `YYYY-MM-DD-TITLE.md` with `date` and `title` front matter set, in given `destination_path`.
-
-###TODO:
-1.Lowercase all letters in file name.
+Creates a markdown file named `YYYY-MM-DD-TITLE.md` with `date` and all lowercase `title`,front matter set, in given `destination_path`.
 
 ##`copy-to-bin.sh`
 ###ARGUMENTS
